@@ -1,65 +1,70 @@
 # ✈️ Airline Overbooking Optimization
 
-This project implements a probabilistic model using **Bayesian inference** and **Monte Carlo simulation** to optimize airline overbooking strategies. The goal is to help airlines maximize revenue by estimating the optimal number of tickets to overbook based on historical no-show data while minimizing the risk of denied boardings and passenger dissatisfaction.
+This project implements a probabilistic model using **Bayesian inference** and **Monte Carlo simulation** to optimize airline overbooking strategies. It helps airlines determine optimal overbooking limits by estimating the likelihood of no-shows based on historical and simulated data.
 
 ---
 
 ## 🚀 Overview
 
-- Developed a Bayesian model to calculate the **posterior distribution** of no-show probabilities using historical data.
-- Applied **Monte Carlo simulation** to estimate the expected outcomes for various overbooking limits.
-- Enabled **data-driven decision-making** for dynamic airline overbooking strategies.
-- Balanced the trade-off between revenue maximization and customer experience.
+- Built a Bayesian model to compute **posterior distributions** for no-show rates.
+- Used **Monte Carlo simulations** to evaluate overbooking decisions.
+- Recommended optimal overbooking range (12–15%) to maximize revenue and reduce passenger denial risk.
 
 ---
 
 ## 🧠 Problem Statement
 
-Airlines face the challenge of passenger no-shows, which leads to revenue loss. Overbooking can mitigate this but comes with the risk of denied boardings. The objective is to estimate an **optimal overbooking limit** that minimizes losses from empty seats while avoiding customer dissatisfaction from overbooking.
+Airlines struggle with empty seats due to passenger no-shows. Overbooking can address this but may cause denied boardings if overdone. This project provides a data-driven framework to determine overbooking limits that balance profit and passenger satisfaction.
+
+---
+
+## 📊 Key Concepts & Methodology
+
+### 📌 Bayesian Inference
+
+- **Prior**: Historical no-show rate (e.g., 8-year data)
+- **Likelihood**: Simulated flight data using binomial distribution  
+- **Posterior**: Updated no-show rate after combining prior and likelihood
+
+> ![Bayesian Prior Distribution](images/prior_distribution.png)  
+> *Fig: Prior distribution of no-show rates from historical data*
+
+---
+
+### 🎲 Monte Carlo Simulation
+
+- Repeatedly sampled from prior distribution
+- Simulated 500 flights with 400 tickets sold per flight
+- Computed posterior distribution after each simulation
+
+> ![Posterior Distributions](images/posterior_distributions.png)  
+> *Fig: Posterior distributions for no-show rates after simulation*
+
+---
+
+## ✅ Results
+
+- Posterior distributions peaked around 10% no-show rate.
+- Optimal overbooking range identified: **12–15%**
+- Beyond 15% increases passenger denial risks and operational costs.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Python**  
-- **NumPy**, **Pandas**  
-- **Matplotlib** (for visualization)  
-- **PyMC3 / SciPy** (for Bayesian modeling)  
-- **Monte Carlo simulation** techniques  
+`Python`, `NumPy`, `Matplotlib`, `SciPy`, `PyMC3`, `Jupyter Notebook`
 
 ---
 
-## 📊 Methodology
+## 📌 Contributors
 
-1. **Data Collection**: Historical passenger and no-show data used as input.
-2. **Bayesian Modeling**:
-   - Defined prior distribution for no-show probability.
-   - Likelihood computed from observed data.
-   - Posterior distribution inferred using Bayes’ Theorem.
-3. **Monte Carlo Simulation**:
-   - Simulated thousands of flight scenarios.
-   - Evaluated outcomes based on varying overbooking limits.
-   - Identified the optimal threshold maximizing revenue.
-
----
-
-## 📈 Results
-
-- The model successfully estimated realistic overbooking limits.
-- Provided a probabilistic understanding of denied boarding risk.
-- Demonstrated improved expected revenue with controlled overbooking.
-
----
-
-## 📌 Future Work
-
-- Integrate real-time data for dynamic optimization.
-- Extend model for multi-leg flights and airline networks.
-- Deploy as a dashboard or microservice for airline management tools.
+- **Prince Kumar** (22MC3039)  
+- **Shaunak** (22MC3029)  
+- **Mentor**: Dr. Dhrubasish Bhattacharyya
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE).
 
