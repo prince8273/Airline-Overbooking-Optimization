@@ -59,14 +59,6 @@ Airlines face the challenge of passenger no-shows, which leads to revenue loss. 
 
 ---
 
-## 👨‍💻 Author
-
-**Prince Kumar**  
-Email: 22mc3039@rgipt.ac.in  
-GitHub: [github.com/prince8273](https://github.com/prince8273)
-
----
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
