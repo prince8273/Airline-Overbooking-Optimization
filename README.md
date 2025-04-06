@@ -1,70 +1,62 @@
 # ✈️ Airline Overbooking Optimization
 
-This project implements a probabilistic model using **Bayesian inference** and **Monte Carlo simulation** to optimize airline overbooking strategies. It helps airlines determine optimal overbooking limits by estimating the likelihood of no-shows based on historical and simulated data.
+This project addresses airline revenue loss due to passenger no-shows. Using **Bayesian inference** and **Monte Carlo simulation**, we estimate the optimal overbooking limits that balance **profit maximization** with **minimized customer denial risk**.
 
 ---
 
 ## 🚀 Overview
 
-- Built a Bayesian model to compute **posterior distributions** for no-show rates.
-- Used **Monte Carlo simulations** to evaluate overbooking decisions.
-- Recommended optimal overbooking range (12–15%) to maximize revenue and reduce passenger denial risk.
+- Built a **Bayesian probabilistic model** to update no-show rate predictions using prior and real-time data.
+- Implemented **Monte Carlo simulations** to estimate posterior distributions and expected overbooking outcomes.
+- Proposed optimal overbooking range (12–15%) to increase revenue without risking excessive denied boardings.
 
 ---
 
-## 🧠 Problem Statement
+## 📌 Problem Statement
 
-Airlines struggle with empty seats due to passenger no-shows. Overbooking can address this but may cause denied boardings if overdone. This project provides a data-driven framework to determine overbooking limits that balance profit and passenger satisfaction.
+### Current Scenario:
+- Airlines rely on historical no-show averages without real-time adaptation.
+- Overbooking decisions lack statistical modeling, leading to either revenue loss or customer dissatisfaction.
 
----
-
-## 📊 Key Concepts & Methodology
-
-### 📌 Bayesian Inference
-
-- **Prior**: Historical no-show rate (e.g., 8-year data)
-- **Likelihood**: Simulated flight data using binomial distribution  
-- **Posterior**: Updated no-show rate after combining prior and likelihood
-
-> ![Bayesian Prior Distribution](images/prior_distribution.png)  
-> *Fig: Prior distribution of no-show rates from historical data*
+### Objective:
+To build a **data-driven, adaptive model** using:
+- **Bayesian Inference**: Incorporates new observations with prior data.
+- **Monte Carlo Estimation**: Simulates flight outcomes and revenue under varying overbooking levels.
 
 ---
 
-### 🎲 Monte Carlo Simulation
+## 📈 Bayesian Framework
 
-- Repeatedly sampled from prior distribution
-- Simulated 500 flights with 400 tickets sold per flight
-- Computed posterior distribution after each simulation
+Bayesian modeling enables dynamic updates to no-show predictions.
 
-> ![Posterior Distributions](images/posterior_distributions.png)  
-> *Fig: Posterior distributions for no-show rates after simulation*
+| Term        | Meaning                                                  |
+|-------------|----------------------------------------------------------|
+| **Prior**   | Historical data from 8+ years of no-show records         |
+| **Likelihood** | Recent passenger behavior (e.g., current booking trends) |
+| **Posterior** | Updated no-show probability combining both sources     |
 
----
-
-## ✅ Results
-
-- Posterior distributions peaked around 10% no-show rate.
-- Optimal overbooking range identified: **12–15%**
-- Beyond 15% increases passenger denial risks and operational costs.
+> Based on literature (DOI:10.4338/ACI-2014-04-RA-0026), prior distribution was modeled using multi-source passenger data.
 
 ---
 
-## 🛠️ Technologies Used
+## 🎲 Monte Carlo Simulation
 
-`Python`, `NumPy`, `Matplotlib`, `SciPy`, `PyMC3`, `Jupyter Notebook`
-
----
-
-## 📌 Contributors
-
-- **Prince Kumar** (22MC3039)  
-- **Shaunak** (22MC3029)  
-- **Mentor**: Dr. Dhrubasish Bhattacharyya
+- **500 flight simulations** run per experiment.
+- For each flight: 400 seats sold with variable no-show behavior.
+- Posterior updated in each trial, tracking denied boarding and revenue scenarios.
+- Simulations indicate **12–15% overbooking** yields optimal return under typical no-show rates (~10%).
 
 ---
 
-## 📄 License
+## 📊 Key Insights
 
-This project is open-source and available under the [MIT License](LICENSE).
+- The model adapts to changing no-show rates dynamically.
+- Airlines can reduce **empty seat losses** while keeping denied boardings below critical levels.
+- Visualization from simulation shows revenue plateaus and risk thresholds clearly.
 
+---
+
+## 🧰 Technologies Used
+
+```bash
+Python, NumPy, Matplotlib, SciPy, PyMC3, Jupyter Notebook
